@@ -1,12 +1,7 @@
 # 💾 LinDB Discord — Free Data Storage in Discord Channels
 
-> Store structured, encrypted data directly inside your Discord channel — for **free**.
----
-
 ### 🌐 Learn more  
 👉 [https://messi.icu](https://messi.icu)
-
----
 
 ---
 
