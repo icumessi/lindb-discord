@@ -1,7 +1,6 @@
 # 💾 LinDB Discord — Free Data Storage in Discord Channels
 
-### 🌐 Learn more  
-👉 [https://messi.icu](https://messi.icu)
+🌐 Learn more [https://messi.icu](https://messi.icu)
 
 ---
 
