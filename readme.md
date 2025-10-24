@@ -1,15 +1,22 @@
 # 💾 LinDB Discord — Free Data Storage in Discord Channels
 
 > Store structured, encrypted data directly inside your Discord channel — for **free**.
-
-[![Node.js](https://img.shields.io/badge/node-%3E%3D16.0.0-green)](https://nodejs.org)
-[![Discord.js](https://img.shields.io/badge/discord.js-v14-blue)](https://discord.js.org)
-[![License](https://img.shields.io/badge/license-MIT-yellow)](LICENSE)
-
 ---
 
 ### 🌐 Learn more  
 👉 [https://messi.icu](https://messi.icu)
+
+---
+
+---
+
+## 💡 Why I Made This
+
+I wanted an easy, reliable, and encrypted way to store data inside Discord —  
+no databases, no servers, just pure Discord.
+
+Couldn’t find anything that fit my needs,  
+so I made **LinDB Discord**.
 
 ---
 
@@ -95,8 +102,8 @@ const encryption = JSON.parse(lindb.generateEncryptionConfig("mysecretpass"));
     client: "<your_bot_token>",
     guildid: "<guild_id>",
     channelid: "<channel_id>",
-    debug: true,
-    encryption, // Add the generated config here
+    debug: true, // Recommended when setting up project
+    encryption: encryption, // Add the generated config here
   });
 
   await db.set("private.tokens", ["abc123", "xyz789"]);
@@ -118,6 +125,20 @@ This means:
 ```js
 const lindb = require("lindb-discord");
 console.log(lindb.generateEncryptionConfig("yourpassphrase"));
+// Copy the generated config and use in your project when initializing the database
+/*
+Example:
+await lindb.initialize(
+    client: "<your_bot_token>",
+    guildid: "<guild_id>",
+    channelid: "<channel_id>",
+    debug: true,
+    encryption: {
+      "key": "6b4e6b4b2b673f7e6e5d486b2b457b73",
+      "iv": "2f5b482f4c345f435b2b484b5b456d3e"
+    }
+)
+*/
 ```
 
 Example output:
@@ -143,9 +164,9 @@ Creates or connects to a Discord-based database.
 | `client` | `discord.Client` or `string` | ✅ | Discord client or token |
 | `guildid` | `string` | ✅ | Guild ID |
 | `channelid` | `string` | ✅ | Channel ID where data is stored |
-| `debug` | `boolean` | ❌ | Logs debugging info |
+| `debug` | `boolean` | ❌ | Logs debugging info, good when the app runs into issues and recommended to enable when setting up project |
 | `encryption` | `{ key, iv }` | ❌ | Enable AES-CBC encryption |
-| `autosave` | `boolean` | ❌ | Enable auto-saving |
+| `autosave` | `boolean` | ❌ | Enable auto-saving, defaults to true |
 | `saveinterval` | `number` | ❌ | Interval in seconds for auto-save |
 
 **Returns:**  
@@ -165,24 +186,8 @@ A JSON-formatted encryption configuration.
 
 ---
 
-## 💡 Why I Made This
-
-I wanted an easy, reliable, and encrypted way to store data inside Discord —  
-no databases, no servers, just pure Discord.
-
-Couldn’t find anything that fit my needs,  
-so I made **LinDB Discord**.
-
----
-
 ## 📜 License
 
-MIT © [King Messi](https://messi.icu)
+MIT © [Messi](https://messi.icu)
 
 ---
-
-### 🧠 Fun Fact
-Each message node can store up to **25MB** of data.  
-That’s like storing a **small JSON database** inside your Discord server.
-
-So yeah... your Discord channel is now your database 😎
