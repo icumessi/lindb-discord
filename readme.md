@@ -40,10 +40,9 @@ Optionally, you can enable **AES-CBC encryption** for secure, symmetric encrypti
 
 ## 🚀 Installation
 
-$$${{
-bash
+```bash
 npm install lindb-discord
-}}$
+```
 
 ---
 
@@ -51,8 +50,7 @@ npm install lindb-discord
 
 ### Basic Setup
 
-$$${{
-js
+```js
 const lindb = require("lindb-discord");
 
 (async () => {
@@ -80,14 +78,13 @@ const lindb = require("lindb-discord");
   console.log(await db.get("scores")); 
   // -> [10, 15]
 })();
-}}$
+```
 
 ---
 
 ### With Encryption Enabled
 
-$$${{
-js
+```js
 const lindb = require("lindb-discord");
 
 // Generate encryption keys
@@ -106,7 +103,7 @@ const encryption = JSON.parse(lindb.generateEncryptionConfig("mysecretpass"));
   console.log(await db.get("private.tokens")); 
   // -> ["abc123", "xyz789"]
 })();
-}}$
+```
 
 ---
 
@@ -118,20 +115,18 @@ This means:
 - Strong and efficient for small to medium data payloads
 - Can be generated dynamically with:
 
-$$${{
-js
+```js
 const lindb = require("lindb-discord");
 console.log(lindb.generateEncryptionConfig("yourpassphrase"));
-}}$
+```
 
 Example output:
-$$${{
-json
+```json
 {
   "key": "6b4e6b4b2b673f7e6e5d486b2b457b73",
   "iv": "2f5b482f4c345f435b2b484b5b456d3e"
 }
-}}$
+```
 
 ---
 
